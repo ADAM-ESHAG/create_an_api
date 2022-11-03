@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken'); //--Importe JSONWEBTOKEN
 
+
 //---Exports middleware that can verify the TOKEN of users
 module.exports = (req, res, next) => {
     //--Collect token

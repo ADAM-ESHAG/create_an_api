@@ -1,4 +1,10 @@
 const   Sauces = require('../models/Sauces'); //---Importe models Sauces
+
+exports.creatThing = (req, res, next) => {
+  //-----Parse thingObject
+  const thingObject = JSON.parse(req.body.thing);
+  console.log(thingObject);
+}
 exports.sauces = (req, res, next) => {
     const sauces = [
       {

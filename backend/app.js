@@ -3,18 +3,19 @@ const express = require('express');
 const cors = require('cors'); //---Importe cors
 
 //----Importe mongoose
-const mongoose = require('mongoose');
-const saucesRoutes = require('./routes/sauces')
+const mongoose = require('mongoose');//---Import Mongoose
+const saucesRoutes = require('./routes/sauces'); //---Import saucesRoutes
 const userRoutes = require('./routes/user'); //---Importe user routes
-const { json } = require('express');
+
 
 //---Create an application (app)
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 
 //---Connect to mongoose
-mongoose.connect('mongodb+srv://<userName>:<password>cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Mongo:Gevon2222@cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -28,12 +29,7 @@ app.use((req, res, next) => {
   next();
 });
   
-app.use(express.json()); 
-//---Create app.use
-// app.use((req, res, next) => {
-//     res.json({message: 'We have a new route !'});
-//     next();
-// });
+
 app.use('/api', saucesRoutes);
 app.use('/api/auth', userRoutes);
 
