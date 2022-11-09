@@ -1,13 +1,13 @@
 const multer = require('multer'); // Import Multer
 
-//---Preperation of a dictionary MIME_TYPE
+//---Preperation of a dictionary MIME_TYPES
 const MIME_TYPES = {
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',
     'image/png': 'png'
 };
-//---Creation of an object of configuration for multer
 
+//---Creation of an object of configuration for multer
 const storage = multer.diskStorage({
     //---The function will take's tow arguments (destination and filename)
     destination: (req, file, callback) => {

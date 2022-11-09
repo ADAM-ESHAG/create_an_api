@@ -1,6 +1,9 @@
 //------Importe express
 const express = require('express');
 const cors = require('cors'); //---Importe cors
+const path = require('path');
+
+
 
 //----Importe mongoose
 const mongoose = require('mongoose');//---Import Mongoose
@@ -8,14 +11,14 @@ const saucesRoutes = require('./routes/sauces'); //---Import saucesRoutes
 const userRoutes = require('./routes/user'); //---Importe user routes
 
 
-//---Create an application (app)
-const app = express();
+const app = express(); //---Create an application (app)
 app.use(express.json());
 app.use(cors());
 
 
-//---Connect to mongoose
-mongoose.connect('mongodb+srv://Mongo:Gevon2222@cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
+
+//---This is the way how we connect to mongoose
+mongoose.connect('mongodb+srv://<userName>:<password>cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -30,8 +33,9 @@ app.use((req, res, next) => {
 });
   
 
-app.use('/api', saucesRoutes);
-app.use('/api/auth', userRoutes);
+app.use('/api', saucesRoutes); //---app.use Sauces routes
+app.use('/api/auth', userRoutes);//---app.use Users routes
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
 //---Exports the application
