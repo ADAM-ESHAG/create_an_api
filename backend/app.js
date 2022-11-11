@@ -18,7 +18,7 @@ app.use(cors());
 
 
 //---This is the way how we connect to mongoose
-mongoose.connect('mongodb+srv://<userName>:<password>cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://<userName>:<password>@cluster0.2qhm2ep.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
