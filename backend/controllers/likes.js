@@ -36,7 +36,7 @@ exports.sauceLikes = (req, res, next) => {
   }
   
 
-  /**---If userId that dislikes are not on usersDesLiked, 
+  /**---If userId that dislikes are not on usersDesLiked and like equale to -1, 
     then update dislikes to 1 and push userId to usersDisliked ---*/
     else if(!sauce.usersDisliked.includes(req.body.userId) && req.body.like === -1){
       /*---Soo update likes and usersLiked ---*/
@@ -62,6 +62,9 @@ exports.sauceLikes = (req, res, next) => {
         }
       ).then(() => res.status(201).json({ message: "Sauces Dislikes -1"}))
       .catch((error) => res.status(400).json({ error}));
+    }
+    else {
+      return res.status(400);
     }
   })
   .catch(error => res.status(404).json({ error }));
