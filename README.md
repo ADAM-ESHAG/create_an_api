@@ -22,11 +22,12 @@ Run ng test to execute the unit tests via Karma.
 Run ng e2e to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 # Backend : 
--Connect to Mongoose, then lanche node or nodemon seveer.
-#Signup route
+-First, connect to MongooseDB, then throw node or nodemon seveer.
+
+# Signup route
 POST('api/auth/signup');
 
-#login route
+# login route
 POST('api/auth/login');
 
 # POST a sauce route
