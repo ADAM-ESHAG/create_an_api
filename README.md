@@ -1,5 +1,5 @@
 # create_an_api
-The object of the project is to develope the backend part, all frontend was provided by OpenclassRooms.
+The object is to develope the backend part, all frontend was provided by OpenclassRooms.
 
 # Frontend : 
 # HotTakes
